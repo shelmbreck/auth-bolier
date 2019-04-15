@@ -19,5 +19,16 @@
     var instances = M.Sidenav.init(elems, options);
   });
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.datepicker')
+      var instances = M.Datepicker.init(elems, {
+        autoClose: false,
+        minDate: new Date('01/01/1900'),
+        maxDate: new Date(),
+        yearRange: [1920, 2019]
+      })
+    })
+  </script>
 </body>
 </html>

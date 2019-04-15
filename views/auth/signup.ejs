@@ -1,30 +1,43 @@
 <h1>Sign Up</h1>
 <div class="row">
     <form class="col s12" method="POST" action="/auth/signup">
-      <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s12 m6">
           <input placeholder="Your first name" id="firstname" name="firstname" type="text" class="validate">
           <label for="firstname">First Name</label>
         </div>
-      <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s12 m6">
           <input placeholder="Your last name" id="last name" name="last name" type="text" class="validate">
           <label for="last name">Last Name</label>
         </div>
-      <div class="row">
+        <div class="row">
         <div class="input-field col s12">
           <input placeholder="Your email" id="email" name="email" type="text" class="validate">
           <label for="email">Email</label>
         </div>
-      </div class="row">
-        <div class="input-field col s12">
+        <div class="row">
+          <div class="input-field col s9">
+            <input placeholder="Your picture" id="image" name="image" type="url" class="validate">
+            <label for="image">Image URL</label>
+        </div>
+        <div class="input-field col s3">
+            <input placeholder="" id="birthdate" name="birthdate" type="text" class="validate">
+            <label for="birthdate">Birthdate</label>
+        </div>
+        </div>
+        <div class="row">
+        <div class="input-field col s12 m6">
           <input placeholder="Your secret password" id="password" name="password" type="password" class="validate">
           <label for="password">Password</label>
         </div>
-      </div class="row">
-        <div class="input-field col s12">
-          <input placeholder="verify password" id="password_verify" name="password_verify" type="password" class="validate">
+        <div class="input-field col s12 m6">
+          <input placeholder="Type password again" id="password_verify" name="password_verify" type="password" class="validate">
           <label for="password_verify">Password Verify</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="bio" name="bio" class="materialize-textarea"></textarea>
+          <label for="bio">User Bio</label>
         </div>
       </div>
       <div class="row">
