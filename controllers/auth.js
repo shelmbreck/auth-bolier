@@ -13,11 +13,19 @@ router.post('/login', (req, res) => {
   res.send('Reached the route POST to /auth/login')
 })
 router.get('/signup', (req, res) => {
-  res.render('Signup Page Stub')
+  res.render('auth/signup')
 })
 
 router.post('/signup', (req, res) => {
-  res.send('Signup Page Stub')
+  console.log(req.body)
+  if(req.body.password !== req.body.password_verify) {
+    req.flash('error', 'Passwords do not match')
+    res.redirect('/auth/signup')
+  } else {
+    req.flash('success', 'You are all signed up!')
+    res.redirect('/')
+  }
 })
 
+// Export the router object so that the routes can be used elsewhere
 module.exports = router
