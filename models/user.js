@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: {
           args: [8, 32],
-          msg: 'Your password must be '
+          msg: 'Your password must be 8-32 characters'
         }
       }
     },
@@ -57,5 +57,10 @@ module.exports = (sequelize, DataTypes) => {
   user.associate = function(models) {
     // associations can be defined here
   }
-  return user;
-};
+
+user.prototype.validPassword = function(typedInPassword) {
+  return bcrypt.compareSync(typedInPassword, this.password)
+}
+
+  return user
+}

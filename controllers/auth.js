@@ -15,6 +15,7 @@ router.get('/login', (req, res) => {
 router.post('/login', (req, res) => {
   res.send('Reached the route POST to /auth/login')
 })
+
 router.get('/signup', (req, res) => {
   res.render('auth/signup')
 })
@@ -30,8 +31,13 @@ router.post('/signup', (req, res) => {
       defaults: req.body
     })
     .spread((user, wasCreated) => {
-      req.flash('success', 'You are all signed up!')
-      res.redirect('/')
+      if(wasCreated) {
+        req.flash('success', 'You are all signed up!')
+        res.redirect('/')
+      } else {
+        req.flash('error', 'Account already exists. Please log in!')
+        res.redirect('/auth/login')
+      }
     })
     .catch((err) => {
       // Print all error info to the terminal (not okay for the user to see)
@@ -51,6 +57,11 @@ router.post('/signup', (req, res) => {
       res.redirect('/auth/signup')
     })
   }
+})
+
+//GET /auth/logout
+router.get('/logout', (req, res) => {
+  res.send('/auth/logout')
 })
 
 // Export the router object so that the routes can be used elsewhere
