@@ -56,7 +56,7 @@ passport.use(new FaceBookStrategy({
   callbackURL: process.env.BASE_URL + '/auth/callback/facebook',
   profileFields: ['id', 'email', 'displayName', 'photos'],
   enableProof: true
-}, (accessToken, refreshToken, profile, callback) => {
+}, (facebookAccessToken, refreshToken, profile, callback) => {
   let facebookEmail = profile.emails.length ? profile.emails[0] : ''
   // Grab the primary email facebook gave us in our local database
   db.user.findOne({
@@ -65,8 +65,35 @@ passport.use(new FaceBookStrategy({
   .then(existingUser => {
     if(existingUser && facebookEmail) {
       //This is a returning user - just update their facebook id and token
+      existingUser.update({
+        facebookId: profile.id,
+        facebookToken: facebookAccessToken
+      })
+      .then(updatedUser => {
+        callback(null, updatedUser)
+      })
+      .catch(callback)
     } else {
       // This is a new user - we need to create them
+      let userNameArr = profile.displayName.split(' ')
+      let photo = profile.photos.length ? profile.photos[0] : 'https://res.cloudinary.com/shelmbreck/image/upload/v1555699463/56487464_10218758364447797_5758361476649713664_o.jpg_bdxr98.jpg'
+
+      db.user.findOrCreate({
+        where: { facebookId: profile.id },
+        defaults: {
+          facebookToken: facebookAccessToken,
+          email: facebookEmail,
+          firstname: userNameArr[0],
+          lastname: userNameArr[userNameArr.length - 1],
+          birthdate: profile.birthday,
+          image: photo,
+          bio: 'This account was created with facebook'
+        }
+      })
+      .spread((foundOrCreatedUser, wasCreated) => {
+        callback(null, foundOrCreatedUser)
+      })
+      .catch(callback)
     }
   }) 
   .catch(callback)
