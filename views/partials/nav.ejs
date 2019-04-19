@@ -18,14 +18,15 @@
 </nav>
 
   <ul class="sidenav" id="mobile-demo">
-    <% if(!user) { %>
+<% if(!user) { %>
         <li><a href="/auth/login">Log In</a></li>
         <li><a href="/auth/signup">Sign Up</a></li>
       <% } else { %> 
-        <li><a href="/profile/admin">Admin</a></li>
-      <% } %>
-        <li><a href="/profile">Profile</a></li>
-        <li><a href="/auth/logout">Logout</a></li>
+        <% if(user.admin) { %>
+          <li><a href="/profile/admin">Admin</a></li>
+        <% } %>
+          <li><a href="/profile">Profile</a></li>
+          <li><a href="/auth/logout">Logout</a></li>
       <% } %>
       </ul>
           

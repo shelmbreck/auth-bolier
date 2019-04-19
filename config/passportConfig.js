@@ -54,13 +54,13 @@ passport.use(new FaceBookStrategy({
   clientID: process.env.FB_APP_ID,
   clientSecret: process.env.FB_APP_SECRET,
   callbackURL: process.env.BASE_URL + '/auth/callback/facebook',
-  profileFields: ['id', 'email', 'displayName', 'photos'],
+  profileFields: ['id', 'email', 'displayName', 'photos', 'birthday'],
   enableProof: true
-}, (facebookAccessToken, refreshToken, profile, callback) => {
-  let facebookEmail = profile.emails.length ? profile.emails[0] : ''
+}, (facebookAccessToken, facebookRefreshToken, profile, callback) => {
+  let facebookEmail = profile.emails.length ? profile.emails[0].value : ''
   // Grab the primary email facebook gave us in our local database
   db.user.findOne({
-    where: { email: facenookEmail}
+    where: { email: facebookEmail}
   })
   .then(existingUser => {
     if(existingUser && facebookEmail) {
@@ -76,7 +76,7 @@ passport.use(new FaceBookStrategy({
     } else {
       // This is a new user - we need to create them
       let userNameArr = profile.displayName.split(' ')
-      let photo = profile.photos.length ? profile.photos[0] : 'https://res.cloudinary.com/shelmbreck/image/upload/v1555699463/56487464_10218758364447797_5758361476649713664_o.jpg_bdxr98.jpg'
+      let photo = profile.photos.length ? profile.photos[0].value : 'https://res.cloudinary.com/shelmbreck/image/upload/v1555699463/56487464_10218758364447797_5758361476649713664_o.jpg_bdxr98.jpg'
 
       db.user.findOrCreate({
         where: { facebookId: profile.id },
@@ -85,7 +85,7 @@ passport.use(new FaceBookStrategy({
           email: facebookEmail,
           firstname: userNameArr[0],
           lastname: userNameArr[userNameArr.length - 1],
-          birthdate: profile.birthday,
+          birthdate: profile._json.birthday,
           image: photo,
           bio: 'This account was created with facebook'
         }
