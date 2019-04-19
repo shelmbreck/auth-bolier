@@ -40,13 +40,19 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Aww, no pic? 😩'
         }
       }
-    }
+    }, 
+    admin: {
+      type: DataTypes.BOOLEAN,
+      deafaultValue: false
+    },
+    facebookId: DataTypes.STRING,
+    facebookToken: DataTypes.STRING
   }, {
     hooks: {
       beforeCreate: (pendingUser) => {
         if (pendingUser && pendingUser.password) {
           //hash the password before it goes into the user table
-          let hash =  bcrypt.hashSync(pendinfUser.password, 12)
+          let hash =  bcrypt.hashSync(pendingUser.password, 12)
 
           //Reassign the password to the hashed value
           pendingUser.password = hash

@@ -7,9 +7,17 @@ let router = express.Router()
 // Reference the models
 let db = require('../models')
 
+//Include our custom middleware to ensure that users are logged in
+let adminLoggedIn = require('../middleware/adminLoggedIn')
+let loggedIn = require('../middleware/loggedIn')
+
 //GET /profile
-router.get('/', (req, res) => {
-  res.send('PROFILE STUB CREATED')
+router.get('/', loggedIn, (req, res) => {
+  res.render('profile/index')
+})
+
+router.get('/admin', adminLoggedIn, (req, res) => {
+  res.render('profile/admin')
 })
 
 module.exports = router
