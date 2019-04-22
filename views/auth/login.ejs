@@ -4,14 +4,14 @@
     <form action="/login">
       <div class="input-field">
         <i class="material-icons prefix">person</i>
-        <input type="text" id="name">
-        <label for="name">Username</label>
+        <input placeholder="Your email" id="email" name="email" type="text" class="validate">
+        <label for="email">Email</label>
       </div>
       <br>
       <div class="input-field">
         <i class="material-icons prefix">lock</i>
-        <input type="password" id="pass">
-        <label for="pass">Password</label>
+        <input placeholder="Your secret password" id="password" name="password" type="password" class="validate">
+          <label for="password">Password</label>
       </div>
       <br>
       <input type="submit" value="Login" class="btn btn-large">

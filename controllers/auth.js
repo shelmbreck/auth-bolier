@@ -33,7 +33,7 @@ router.post('/signup', (req, res) => {
     .spread((user, wasCreated) => {
       if(wasCreated) {
         req.flash('success', 'You are all signed up!')
-        res.redirect('/')
+        res.redirect('/profile')
       } else {
         req.flash('error', 'Account already exists. Please log in!')
         res.redirect('/auth/login')

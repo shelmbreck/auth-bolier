@@ -2,29 +2,26 @@
   <h4>Signup Form</h4>
   <br>
   <form class="col s12" method="POST" action="/auth/signup">
-    <div class="input-field col s12 m6">
+  <div class="row">
+    <div class="input-field col s6 m6">
       <input placeholder="Your first name" id="firstname" name="firstname" type="text" class="validate">
       <label for="firstname">First Name</label>
     </div>
-    <div class="input-field col s12 m6">
+    <div class="input-field col s6 m6">
       <input placeholder="Your last name" id="lastname" name="lastname" type="text" class="validate">
       <label for="lastname">Last Name</label>
     </div>
+  </div>
     <div class="row">
-      <div class="input-field col s12">
+      <div class="input-field col s9">
         <input placeholder="Your email" id="email" name="email" type="text" class="validate">
         <label for="email">Email</label>
       </div>
-        <div class="row">
-          <div class="input-field col s9">
-            <input placeholder="Your picture" id="image" name="image" type="url" class="validate">
-            <label for="image">Image URL</label>
-        </div>
-        <div class="input-field col s3">
-            <input placeholder="" id="birthdate" name="birthdate" type="date" class="validate">
-            <label for="birthdate">Birthdate</label>
-        </div>
-        </div>
+      <div class="input-field col s3">
+        <input placeholder="" id="birthdate" name="birthdate" type="date" class="validate">
+        <label for="birthdate">Birthdate</label>
+      </div>
+    </div>
         <div class="row">
         <div class="input-field col s12 m6">
           <input placeholder="Your secret password" id="password" name="password" type="password" class="validate">

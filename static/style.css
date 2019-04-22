@@ -14,3 +14,13 @@ body {
   text-align: center;
   font-family: 'Coming Soon', cursive;
 }
+
+#opening {
+  background-color: white;
+  font-family: 'Coming Soon', cursive;
+  font-size: 25px;
+  width: 70%;
+  height: 40%;
+  border-radius: 8px;
+}
+
