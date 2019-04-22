@@ -2,7 +2,7 @@
 require('dotenv').config()
 
 //Require necessary modules
-let express =  require('express')
+let express = require('express')
 let flash = require('connect-flash')
 let layouts = require('express-ejs-layouts')
 let session = require('express-session')
@@ -26,7 +26,7 @@ app.use(flash())
 
 //Custom Middleware - write data to locals
 app.use((req, res, next) => {
-  res.locals.alerts = req.flash()
+  // res.locals.alerts = req.flash()
   next()
 })
 

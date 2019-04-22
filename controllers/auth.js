@@ -1,5 +1,5 @@
 // Require needed modules
-let = express = require('express')
+let express = require('express')
 
 //Declare an express router
 let router = express.Router()

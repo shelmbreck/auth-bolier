@@ -1,3 +1,16 @@
 .closeable {
   cursor: pointer;
 }
+
+body {
+  background: url('./images/color-diet-food-255501.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.brand-logo {
+  text-align: center;
+  font-family: 'Coming Soon', cursive;
+}
