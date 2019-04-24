@@ -38,7 +38,7 @@
 | POST   | /              | controllers/profile.js |                           |
 | DELETE | /              | controllers/profile.js |                           |
 | GET    | /              | controllers/recipes.js |                           |
-| GET    | /label         | controllers/recipes.js |                           |
+| GET    | /label/new     | controllers/recipes.js |                           |
 | GET    | /recipes/show  | controllers/recipes.js |                           |
 
 

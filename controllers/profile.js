@@ -10,9 +10,15 @@ let db = require('../models')
 
 //GET /profile
 router.get('/', (req, res) => {
-  res.send('PROFILE STUB CREATED')
+  db.user.getAll()
+  .then((faves) => {
+    res.render('profile/index', { faves })
+  })
+  .catch((err) => {
+    console.log('Error in GET /faves', err)
+    res.render('404')
+  })
 })
-
 
 //GET/edit/:id
 router.get('/edit/:id', (res, req) => {
@@ -29,15 +35,17 @@ router.get('/results', (req, res) => {
 // PUT 
 router.put('/new', function(req, res) {
   res.render('results')
-
+})
 //POST 
 router.post('/', (req, res) => {
   res.render('results')
 
 })
 // DELETE /remove/faves
-router.delete('/remove', (req, res) => {
-  res.destroy({ where: { id: req.body.id}})
+router.delete('/faves', (req, res) => {
+  db.favorites.destroy({
+    where: req.param.body
+  })
   .then(deletedRecipe => {
     res.redirect('/results/faves')
   })
