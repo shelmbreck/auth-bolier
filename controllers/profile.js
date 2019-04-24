@@ -28,7 +28,18 @@ router.get('/edit/:id', (res, req) => {
   })
 
 // PUT 
-router.put('/new', function(req, res) {
+router.put('/new', (req, res) => {
+  db.user.update({
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.email,
+    birthday: req.body.birthday,
+    }, {
+    }).then(function(user) {
+      res.send('success');
+    }).catch(function(error) {
+      console.log(error);
+    });
   res.render('results')
 })
 
