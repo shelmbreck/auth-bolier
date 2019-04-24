@@ -11,7 +11,7 @@ let db = require('../models')
 // GET recipes from API
 router.get('/', (req, res) => {
   var recipeUrl = process.env.BASE_URL
-      request(urlToCall, function(error, response, body) {
+      request(recipeUrl, function(error, response, body) {
         if(error || response.statusCode != 200) {
           console.log('error', error)
           console.log('status code', response && response.statusCode)
@@ -19,7 +19,6 @@ router.get('/', (req, res) => {
           res.send('Oops - check logs')
         } else {
           var results = JSON.parse(body)
-
           res.render('/recipes','result', {
             
           })

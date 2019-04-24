@@ -22,25 +22,21 @@ router.get('/', (req, res) => {
 
 //GET/edit/:id
 router.get('/edit/:id', (res, req) => {
-
-  res.render('profile/edit')
-})
-
-
-// GET /results
-router.get('/results', (req, res) => {
-      res.render('results')
-})
+  db.user.findById(req.params.id).then(user => {
+      res.render('profile/edit', { user: user })
+    })
+  })
 
 // PUT 
 router.put('/new', function(req, res) {
   res.render('results')
 })
+
 //POST 
 router.post('/', (req, res) => {
   res.render('results')
-
 })
+
 // DELETE /remove/faves
 router.delete('/faves', (req, res) => {
   db.favorites.destroy({

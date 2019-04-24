@@ -1,5 +1,3 @@
-
-
 ## User Schema
 | Column    | Data Type | Description                                    |
 | --------- | --------- | ---------------------------------------------- |
@@ -21,26 +19,24 @@
 | uri    | String    | ------------------------------------------------- |
 | foodId | String    | ------------------------------------------------- |
 
-
 #### Routes
 
-| Method | Path           | Location               | Purpose                   |
-| ------ | -------------- | ---------------------- | ------------------------- |
-| GET    | /              | index.js               | Home Page                 |
-| GET    | /auth/login    | controllers/auth.js    | Renders Login Form        |
-| POST   | /auth/login    | controllers/auth.js    | Handles Login Auth        |
-| GET    | /auth/signup   | controllers/auth.js    | Renders Signup Form       |
-| POST   | /auth/signup   | controllers/auth.js    | Handles                   |
-| GET    | /auth/logout   | controllers/auth.js    | Removes User Session Data |
-| GET    | /profile       | controllers/profile.js | User Profile Page         |
-| GET    | /profile/edit  | controllers/profile.js |                           |
-| PUT    | /profile/new   | controllers/profile.js | User Profile Page         |
-| POST   | /              | controllers/profile.js |                           |
-| DELETE | /              | controllers/profile.js |                           |
-| GET    | /              | controllers/recipes.js |                           |
-| GET    | /label/new     | controllers/recipes.js |                           |
-| GET    | /recipes/show  | controllers/recipes.js |                           |
-
+| Method | Path           | Location               | Purpose                      |
+| ------ | -------------- | ---------------------- | ---------------------------- |
+| GET    | /              | index.js               | Home Page                    |
+| GET    | /auth/login    | controllers/auth.js    | Renders Login Form           |
+| POST   | /auth/login    | controllers/auth.js    | Handles Login Auth           |
+| GET    | /auth/signup   | controllers/auth.js    | Renders Signup Form          |
+| POST   | /auth/signup   | controllers/auth.js    | Handles                      |
+| GET    | /auth/logout   | controllers/auth.js    | Removes User Session Data    |
+| GET    | /profile       | controllers/profile.js | User Profile Page            |
+| GET    | /profile/edit  | controllers/profile.js | Edit User Profile            |
+| PUT    | /profile/new   | controllers/profile.js | Puts new info in the profile |
+| POST   | /              | controllers/profile.js |                              |
+| DELETE | /              | controllers/profile.js |                              |
+| GET    | /              | controllers/recipes.js |                              |
+| GET    | /label/new     | controllers/recipes.js |                              |
+| GET    | /recipes/show  | controllers/recipes.js |                              |
 
 #### Adding Migrations
 
