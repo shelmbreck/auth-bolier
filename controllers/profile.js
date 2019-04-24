@@ -8,20 +8,32 @@ let router = express.Router()
 // Reference the models
 let db = require('../models')
 
+//GET /profile
+router.get('/', (req, res) => {
+  res.send('PROFILE STUB CREATED')
+})
+
+
 //GET/edit/:id
 router.get('/edit/:id', (res, req) => {
 
   res.render('profile/edit')
 })
 
-//GET /profile
-router.get('/', (req, res) => {
-  res.send('PROFILE STUB CREATED')
-})
 
 // GET /results
-router.get('/results', function(req, res) {
+router.get('/results', (req, res) => {
       res.render('results')
+})
+
+// PUT 
+router.put('/new', function(req, res) {
+  res.render('results')
+
+//POST 
+router.post('/', (req, res) => {
+  res.render('results')
+
 })
 // DELETE /remove/faves
 router.delete('/remove', (req, res) => {

@@ -10,8 +10,22 @@ let db = require('../models')
 
 // GET recipes from API
 router.get('/', (req, res) => {
-  res.render('/recipes')
-})
+  var recipeUrl = process.env.BASE_URL
+      request(urlToCall, function(error, response, body) {
+        if(error || response.statusCode != 200) {
+          console.log('error', error)
+          console.log('status code', response && response.statusCode)
+          console.log('body:', body);
+          res.send('Oops - check logs')
+        } else {
+          var results = JSON.parse(body)
+
+          res.render('/recipes','result', {
+            
+          })
+        }
+      })
+    })
 
 // GET show recipes 
 router.get('/show', (req, res) => {
