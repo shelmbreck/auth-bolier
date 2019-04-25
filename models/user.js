@@ -32,21 +32,12 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     birthdate: DataTypes.DATE,
-    bio: DataTypes.TEXT,
-    image: {
-      type: DataTypes.TEXT,
-      validate: {
-        isUrl: {
-          msg: 'Aww, no pic? 😩'
-        }
-      }
-    }
   }, {
     hooks: {
       beforeCreate: (pendingUser) => {
         if (pendingUser && pendingUser.password) {
           //hash the password before it goes into the user table
-          let hash =  bcrypt.hashSync(pendinfUser.password, 12)
+          let hash =  bcrypt.hashSync(pendingUser.password, 12)
 
           //Reassign the password to the hashed value
           pendingUser.password = hash
@@ -56,6 +47,8 @@ module.exports = (sequelize, DataTypes) => {
   })
   user.associate = function(models) {
     // associations can be defined here
+    //TODO user has many favorites
+    models.user.hasMany(models.favorite)
   }
 
 user.prototype.validPassword = function(typedInPassword) {

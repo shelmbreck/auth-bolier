@@ -21,7 +21,6 @@ router.get('/signup', (req, res) => {
 })
 
 router.post('/signup', (req, res) => {
-  console.log(req.body)
   if(req.body.password !== req.body.password_verify) {
     req.flash('error', 'Passwords do not match')
     res.redirect('/auth/signup')

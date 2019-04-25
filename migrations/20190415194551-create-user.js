@@ -23,12 +23,6 @@ module.exports = {
       birthdate: {
         type: Sequelize.DATE
       },
-      bio: {
-        type: Sequelize.TEXT
-      },
-      image: {
-        type: Sequelize.TEXT
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

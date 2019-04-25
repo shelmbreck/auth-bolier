@@ -10,7 +10,9 @@ let db = require('../models')
 
 //GET /profile
 router.get('/', (req, res) => {
-  db.user.getAll()
+  db.favorites.getAll({
+    where: { userId: req.user.id }
+  })
   .then((faves) => {
     res.render('profile/index', { faves })
   })
@@ -22,8 +24,9 @@ router.get('/', (req, res) => {
 
 //GET/edit/:id
 router.get('/edit/:id', (res, req) => {
-  db.user.findById(req.params.id).then(user => {
-      res.render('profile/edit', { user: user })
+  db.user.findById(req.params.id)
+    .then(user => {
+    res.render('profile/edit', { user: user })
     })
   })
 
@@ -34,8 +37,8 @@ router.put('/new', (req, res) => {
     email: req.body.email,
     password: req.body.email,
     birthday: req.body.birthday,
-    }, {
-    }).then(function(user) {
+  })
+  .then(function(user) {
       res.send('success');
     }).catch(function(error) {
       console.log(error);
@@ -45,7 +48,21 @@ router.put('/new', (req, res) => {
 
 //POST 
 router.post('/', (req, res) => {
-  res.render('results')
+  db.favorite.create({
+    id: req.body.id,
+    url: req.body.url,
+    label: req.body.label,
+    image: req.body.image,
+    uri: req.body.uri,
+    foodId: req.body.foodId
+  })
+  .then((favorites) => {
+    res.redirect('profile/favorites');
+  })
+  .catch(err => {
+    console.log(err)
+    res.render('404')
+  })
 })
 
 // DELETE /remove/faves
