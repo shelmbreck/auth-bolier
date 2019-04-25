@@ -1,34 +1,33 @@
 <% if(alerts && alerts.error) { %>
   <div class="row">
     <div class="col s12">
-      <div class="card red lighten-2">
-        <div class="card-content white-text">
-          <span class="card-title">Error</span>
-          <% alerts.error.forEach((msg) => { %>
-            <p><%= msg %></p>
-          <% }) %>
-          <hr>
-          <p class="closeable">Close</p>
+        <div class="card red lighten-2">
+          <div class="card-content white-text">
+            <span class="card-title">Error</span>
+            <% alerts.error.forEach((msg) => { %>
+              <p><%= msg %></p>
+            <% }) %>
+            <hr>
+            <p class="closeable">Close</p>
+          </div>
         </div>
-      </div>
     </div>
   </div>
 <% } %>
 
-
 <% if(alerts && alerts.success) { %>
   <div class="row">
     <div class="col s12">
-      <div class="card green lighten-2">
-        <div class="card-content white-text">
-          <span class="card-title">Success</span>
-          <% alerts.success.forEach((msg) => { %>
-            <p><%= msg %></p>
-          <% }) %>
-          <hr>
-          <p class="closeable">Close</p>
+        <div class="card green lighten-2">
+          <div class="card-content white-text">
+            <span class="card-title">Success</span>
+            <% alerts.success.forEach((msg) => { %>
+              <p><%= msg %></p>
+            <% }) %>
+            <hr>
+            <p class="closeable">Close</p>
+          </div>
         </div>
-      </div>
     </div>
   </div>
 <% } %>
@@ -40,6 +39,3 @@
     })
   })
 </script>
-
-
-

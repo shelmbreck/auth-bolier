@@ -23,10 +23,10 @@ var db = require('./models')
 //   console.log(favorite.get())
 // })
 
-db.user.findOne({
-  where: { id: 1 },
-  include: [db.favorite]
-})
-.then(result=>{
-  console.log(result.favorites)
-})
+// db.user.findOne({
+//   where: { id: 1 },
+//   include: [db.favorite]
+// })
+// .then(result=>{
+//   console.log(result.favorites)
+// })

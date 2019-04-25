@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mom, What's for dinner?! </title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" 
-  rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
+  <title>Mom What's For Dinner?!</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
   <% include ./partials/nav %>
   <div class="container">
-    <% include ./partials/alerts  %>
+    <% include ./partials/alerts %>
     <%- body %>
   </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -24,10 +23,8 @@
         setDefaultDate: true,
         minDate: new Date('01/01/1920'),
         maxDate: new Date(),
-        yearRange: 20
+        yearRange: 5
       })
-    var elems = document.querySelectorAll('.modal')
-    var instances = M.Modal.init(elems, {})
     })
   </script>
 </body>

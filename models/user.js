@@ -47,7 +47,6 @@ module.exports = (sequelize, DataTypes) => {
   })
   user.associate = function(models) {
     // associations can be defined here
-    //TODO user has many favorites
     models.user.hasMany(models.favorite)
   }
 
