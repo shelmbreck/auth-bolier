@@ -10,7 +10,7 @@ let db = require('../models')
 
 //GET /profile
 router.get('/', (req, res) => {
-  db.favorites.findAll({
+  db.favorites.findOne({
     where: { userId: req.user.id }
   })
   .then((faves) => {

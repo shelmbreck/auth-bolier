@@ -1,0 +1,19 @@
+<h1 class="center"><%= hit.recipe.label %></h1>
+
+<div class="row">
+  <div class="col s12 m4">
+    <div>
+      <img class="responsive-img" src="<%= hit.recipe.image%>">
+    </div>
+    <hr>
+    <div>
+      <p><strong>Ingredients Labels:</strong><%= hit.recipe.ingredientsLabels %></p>
+      <p><strong>Ingredients:</strong><%= hit.recipe.ingredients %></p>
+      <p><strong>Diet Labels:</strong><%= hit.recipe.dietLabels %></p>
+      <p><strong>Health Labels:</strong><%= hit.recipe.healthLabels %></p>
+      <p><strong>Original Source:</strong><%= hit.recipe.source %></p>
+      <p><strong>Recipe Uri:</strong><%= uri: hit.recipe.uri, %></p>
+      <p><strong>Recipe Url:</strong><%= url: hit.recipe.url%></p>    
+    </div>
+  </div>
+  

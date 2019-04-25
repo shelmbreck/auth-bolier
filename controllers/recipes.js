@@ -26,17 +26,18 @@ router.get('/', (req, res) => {
         results = JSON.parse(body)
         var neededItems = results.hits.map(hit=>{
           return {
-            dietLabels: hit.recipes.dietLabels,
-            healthLabels: hit.recipes.healthLabels,
-            image: hit.recipes.image,
-            ingredientLabels: hit.recipes.ingredientLabels,
-            label: hit.recipes.label,
+            dietLabels: hit.recipe.dietLabels,
+            healthLabels: hit.recipe.healthLabels,
+            image: hit.recipe.image,
+            ingredients: hit.recipe.ingredients,
+            ingredientLabels: hit.recipe.ingredientLabels,
+            label: hit.recipe.label,
             query: req.body.query,
-            resuts: hit.recipes.results,
-            shareAs: hit.recipes.shareAs,
-            source: hit.recipes.source,
-            uri: hit.recipes.uri,
-            url: hit.recipes.url
+            resuts: hit.recipe.results,
+            shareAs: hit.recipe.shareAs,
+            source: hit.recipe.source,
+            uri: hit.recipe.uri,
+            url: hit.recipe.url
           }
         })
         res.send(neededItems)
