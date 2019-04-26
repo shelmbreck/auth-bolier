@@ -6,16 +6,15 @@
         <div class="card">
           <div class="responsive-img">
             <img src="<%= recipe.image %>">
-            <span class="card-title"><%= recipe.ingredientsLabels %></span>
           </div>
           <div class="card-content">
             <div>
+            <i class="material-icons">favorite</i>
+            <h1 class="card-title"><%= recipe.ingredientsLabels %></h1>
               <p><strong>Ingredients:</strong><%= recipe.ingredients %></p>
               <p><strong>Diet Labels:</strong><%= recipe.dietLabels %></p>
               <p><strong>Health Labels:</strong><%= recipe.healthLabels %></p>
-              <p><strong>Original Source:</strong><%= recipe.source %></p>
-              <p><strong>Recipe Uri:</strong><%= recipe.uri %></p>
-              <p><strong>Recipe Url:</strong><%= recipe.url %></p>  
+              <p><strong>Original Source:</strong><%= recipe.source %></p> 
             </div>
           </div>
           <div class="card-action">
