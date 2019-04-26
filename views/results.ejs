@@ -1,0 +1,31 @@
+<% recipes.forEach(recipe => { %>
+<h1 class="center"><%= recipe.label %></h1>
+  <div class="row">
+    <form method="GET" action="/recipes">
+      <div class="col s6">
+        <div class="card">
+          <div class="responsive-img">
+            <img src="<%= recipe.image %>">
+            <span class="card-title"><%= recipe.ingredientsLabels %></span>
+          </div>
+          <div class="card-content">
+            <div>
+              <p><strong>Ingredients:</strong><%= recipe.ingredients %></p>
+              <p><strong>Diet Labels:</strong><%= recipe.dietLabels %></p>
+              <p><strong>Health Labels:</strong><%= recipe.healthLabels %></p>
+              <p><strong>Original Source:</strong><%= recipe.source %></p>
+              <p><strong>Recipe Uri:</strong><%= recipe.uri %></p>
+              <p><strong>Recipe Url:</strong><%= recipe.url %></p>  
+            </div>
+          </div>
+          <div class="card-action">
+            <a href="<%= recipe.url %>">Visit Page</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+<% }) %>
+
+
+

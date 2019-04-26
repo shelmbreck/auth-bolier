@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
             dietLabels: hit.recipe.dietLabels,
             healthLabels: hit.recipe.healthLabels,
             image: hit.recipe.image,
-            ingredients: hit.recipe.ingredients,
+            ingredients: hit.recipe.ingredientLines,
             ingredientLabels: hit.recipe.ingredientLabels,
             label: hit.recipe.label,
             query: req.body.query,
@@ -40,8 +40,8 @@ router.get('/', (req, res) => {
             url: hit.recipe.url
           }
         })
-        res.send(neededItems)
-        // res.render('results', { results })
+        res.render('results', { recipes: neededItems })
+      // ?res.send(neededItems)
       }
     })
   } else {

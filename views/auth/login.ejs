@@ -1,7 +1,7 @@
-<div class="container center">
+<div class="container center" id="log-in">
 <h1>Log In</h1>
 <p>New to this site? Go to the <a href="/auth/signup">sign up page</a> instead!</p>
-    <form action="/login">
+    <form method="POST" action="/auth/login">
       <div class="input-field">
         <i class="material-icons prefix">person</i>
         <input placeholder="Your email" id="email" name="email" type="text" class="validate">

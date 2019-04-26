@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col s12">
+    <h3 class="center">Recipe Reviews</h3>
+    <% if(recipe.reviews && recipe.reviews.length) { %>
+      <% recipe.reviews.forEach((r) => { %>
+        <div>
+        <p>Rated<%= r.rating %>⭐️s</p>
+        <p>&lsquo;<em><%= r.comment %></em>&rsquo;</p>
+        </div>
+        <hr>
+      <% }) %>
+    <% } else { %>
+    be the first
+    <% } %>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12">
+    <h3 class="center">Add New Review</h3>
+    <div class="row">
+      <form class="col s12" method="POST" action="/recipes">
+        <input type="hidden" name="recipeId" value="<%=recipe.id%>">
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <input placeholder="Your Name" id="name" name="name" type="text" class="validate">
+            <label for="name">Your Name</label>
+          </div>
+          <div class="range-field col s12 m6">
+            <input placeholder="rating" id="rating" name="rating" type="range" min="0" max="5" step="0.1">
+            <label for="rating">Your Star Rating</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="comment" name="comment" class="materialize-textarea"></textarea>
+            <label for="comment">Your Thoughts</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <button class="btn waves-effect waves-light right" type="submit">Add Your Two Cents
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+  

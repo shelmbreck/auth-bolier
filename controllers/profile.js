@@ -10,16 +10,20 @@ let db = require('../models')
 
 //GET /profile
 router.get('/', (req, res) => {
-  db.favorites.findOne({
-    where: { userId: req.user.id }
-  })
-  .then((faves) => {
-    res.render('profile/index', { faves })
-  })
-  .catch((err) => {
-    console.log('Error in GET /faves', err)
-    res.render('404')
-  })
+  if(!req.user.id) {
+    res.redirect('/auth/signup')
+  } else {
+    db.favorite.findOne({
+      where: { userId: req.user.id }
+    })
+    .then((faves) => {
+      res.render('profile/index', { faves })
+    })
+    .catch((err) => {
+      console.log('Error in GET /faves', err)
+      res.render('404')
+    })
+  }
 })
 
 //GET/edit/:id
