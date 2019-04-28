@@ -10,17 +10,17 @@ let db = require('../models')
 
 //GET /profile
 router.get('/', (req, res) => {
-  if(!req.user.id) {
+  if(!req.user) {
     res.redirect('/auth/signup')
   } else {
-    db.favorite.findOne({
+    db.favorite.findAll({
       where: { userId: req.user.id }
     })
     .then((faves) => {
       res.render('profile/index', { faves })
     })
     .catch((err) => {
-      console.log('Error in GET /faves', err)
+      console.log('Error in GET /favorites', err)
       res.render('404')
     })
   }
@@ -28,14 +28,14 @@ router.get('/', (req, res) => {
 
 //GET/edit/:id
 router.get('/edit/:id', (res, req) => {
-  db.user.findById(req.params.id)
+  db.user.findByPk(req.params.id)
     .then(user => {
-    res.render('profile/edit', { user: user })
+      res.render('profile/edit', { user: user })
     })
   })
 
 // PUT 
-router.put('/new', (req, res) => {
+router.put('/index/:id', (req, res) => {
   db.user.update({
     name: req.body.name,
     email: req.body.email,
@@ -43,17 +43,16 @@ router.put('/new', (req, res) => {
     birthday: req.body.birthday,
   })
   .then(function(user) {
-      res.send('success');
+      res.redirect('/profile/index', { user })
     }).catch(function(error) {
-      console.log(error);
-    });
-  res.render('results')
+        res.render('404')
+    })
 })
 
 //POST 
-router.post('/', (req, res) => {
+router.post('/profile/favorites', (req, res) => {
   db.favorite.create({
-    id: req.body.id,
+    userId: req.user,
     url: req.body.url,
     label: req.body.label,
     image: req.body.image,
@@ -61,7 +60,7 @@ router.post('/', (req, res) => {
     foodId: req.body.foodId
   })
   .then((favorites) => {
-    res.redirect('profile/favorites');
+    res.redirect('profile/favorites', { faves: favorites })
   })
   .catch(err => {
     console.log(err)
@@ -70,12 +69,12 @@ router.post('/', (req, res) => {
 })
 
 // DELETE /remove/faves
-router.delete('/faves', (req, res) => {
-  db.favorites.destroy({
-    where: req.param.body
+router.delete('/', (req, res) => {
+  db.favorite.destroy({
+    where: { id: req.body.id }
   })
   .then(deletedRecipe => {
-    res.redirect('/results/faves')
+    res.redirect('/profile/favorites', { faves : favorites })
   })
   .catch(err => {
     console.log(err)

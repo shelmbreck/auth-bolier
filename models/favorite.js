@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     // TODO favorite belongs to user
     models.favorite.belongsTo(models.user)
+    models.favorite.hasMany(models.comment)
 
   };
   return favorite;

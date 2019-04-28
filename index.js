@@ -5,10 +5,12 @@ require('dotenv').config()
 let express = require('express')
 let flash = require('connect-flash')
 let layouts = require('express-ejs-layouts')
+var methodOverride = require('method-override')
 let session = require('express-session')
 
 // Include passport configuration
 let passport = require('./config/passportConfig')
+
 
 // Declare Express app
 let app = express()
@@ -17,6 +19,7 @@ let app = express()
 app.set('view engine', 'ejs')
 
 // Include (use) middleware
+app.use(methodOverride('_method'))
 app.use('/', express.static('static'))
 app.use(layouts)
 app.use(express.urlencoded({ extended: false }))
@@ -40,6 +43,7 @@ app.use((req, res, next) => {
 app.use('/auth', require('./controllers/auth'))
 app.use('/profile', require('./controllers/profile'))
 app.use('/recipes', require('./controllers/recipes'))
+app.use('/comments', require('./controllers/comments'))
 
 // Make a home route: GET /
 app.get('/', (req, res) => {

@@ -1,0 +1,36 @@
+<div class='row center'>
+	<div class='col s12 m8 l6 offset-m2 offset-l3 center'>
+		<h5 class='greeting form-background center'>Welcome, <%- user.firstname %>! What are we cooking today?</h5>
+	</div>
+</div>
+
+<div class="column center">
+	<div class="info">
+		<div class="col s12 m8 l6">
+			<h3>Your Information: </h3>
+			<h6>Name: <%= user.firstname %> <%= user.lastname %></h6>
+			<h6>Email: <%= user.email %></h6>
+			<h6>Birthday: <%= user.birthday %></h6>
+			<div><a href="profile/edit/">Edit Profile</a></div>
+		</div>
+	</div>
+</div>
+
+<div class="column">
+	<div class="col s12 m8 l6">
+		<div class='faves'>
+		<h2>Your Favorites:</h2>
+			<div class="col s6">
+				<% faves.forEach((fave) => { %>
+        <h4>Nutrition Details</h4>
+				<h5><a class="label" href="<%= fave.label %>"></a></h5>
+        <p><a href="<%= fave.url %>"><img class='responsive-img' src="<%= fave.imgUrl   %>" alt="<%= fave.label %>"></a></p>
+				<form action="/profile/edit/<%= user %>/?_method=DELETE" method="POST">
+					<input type="hidden" name="id" value="<%= fave.id %>">
+					<input class="delete-recipe" type="submit" value="Delete from Faves">
+        </form>
+			</div>
+	<% }) %>
+		</div>
+	</div>
+</div>

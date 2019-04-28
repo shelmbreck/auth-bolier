@@ -1,44 +1,40 @@
-<div id="opening">
+<div class="center"id="opening">
   <p>Are the kids asking "Mom, what's for dinner?!" Let me guess... you have no idea.</p> 
   <p>Maybe you're trying out a new diet and need new ideas?</p>
   <p>Or maybe you just don't have time and you need something quick and easy that everyone will like</p>
   <p>No problem we've got you covered!</p>
 </div>
+<br>
 
-<form method="GET" action="/recipes">
-  <input 
-    type="text" 
-    class="form-control" 
-    placeholder="Search" 
-    name="search-term" 
-    id="search-term">
-  <a class="btn dropdown-trigger" href="#!" data-target="dropdown2">Filter<i class="material-icons right">arrow_drop_down</i></a>
-  <ul id="dropdown2" class="dropdown-content">
-    <li><a href="#!">Vegetarian</a></li>
-    <li><a href="#!">Vegan</a></li>
-    <li><a href="#!">Paleo</a></li>
-    <li><a href="#!">High-Fiber</a></li>
-    <li><a href="#!">High-Protein</a></li>
-    <li><a href="#!">Low-Carb</a></li>
-    <li><a href="#!">Low-Fat</a></li>
-    <li><a href="#!"></a>Low-Sodium</a></li>
-    <li><a href="#!">Low-Sugar</a></li>
-    <li><a href="#!">Alcohol-Free</a></li>
-    <li><a href="#!">Balanced</a></li>
-  </ul>
-
-  <a class="btn dropdown-trigger" href="#!" data-target="dropdown2">Allergies<i class="material-icons right">arrow_drop_down</i></a>
-  <ul id="dropdown2" class="dropdown-content">
-    <li><a href="#!">Gluten</a></li>
-    <li><a href="#!">Dairy</a></li>
-    <li><a href="#!">Eggs</a></li>
-    <li><a href="#!">Soy</a></li>
-    <li><a href="#!">Wheat</a></li>
-    <li><a href="#!">Fish</a></li>
-    <li><a href="#!">Shellfish</a></li>
-    <li><a href="#!"></a>Tree Nuts</a></li>
-    <li><a href="#!">Peanuts</a></li>
-  </ul> %>
-
-  <button class="btn waves-effect waves-light right" type="submit">Submit</button>
-</form>
+<form method="GET" action="/recipes" id="submission">
+<div class='row center'> 
+<div class='row center search-area'>
+        <div class="input-field col s12 m5 l5 center searchbox z-depth-3">
+          <input id="search" class="z-depth-3" type="search" name='search' placeholder= "Search">
+        </div>
+		<select name='selectionbox' class="browser-default selectionbox col s12 m5 l5 z-depth-3">
+			<option value="null" selected>Diet Options</option>
+			<option value="dairy-free">Dairy-Free</option>
+			<option value="egg-free">Egg-Free</option>
+			<option value="gluten-free">Gluten-Free</option>
+			<option value="kosher">Kosher</option>
+			<option value="paleo">Paleo</option>
+			<option value="peanut-free">Peanut-Free</option>
+			<option value="pescatarian">Pescatarian</option>
+			<option value="shellfish-free">Shellfish-Free</option>
+			<option value="soy-free">Soy-Free</option>
+			<option value="tree-nut-free">Tree Nut-Free</option>
+			<option value="vegan">Vegan</option>
+			<option value="vegatarian">Vegetarian</option>
+			<option value="wheat-free">Wheat-Free</option>
+		<div class="card-reveal">
+		<span class="card-title red-text text-darken-4">Dietary Options<i class="material-icons right">close</i></span>
+	</div>
+  </div>
+	</div>
+</div>
+		</select>
+		<button type='submit' class='col s12 m2 l2 btn-large selectionbox waves-effect waves-light red darken-2 center submit-search-button z-depth-3'>Search!</button>
+</div>
+    </form>
+	
