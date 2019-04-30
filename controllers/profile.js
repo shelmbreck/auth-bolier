@@ -30,12 +30,12 @@ router.get('/', (req, res) => {
 router.get('/edit/:id', (res, req) => {
   db.user.findByPk(req.params.id)
     .then(user => {
-      res.render('profile/edit', { user: user })
+      res.render('profile/edit', { user })
     })
   })
 
 // PUT 
-router.put('/index/:id', (req, res) => {
+router.put('/', (req, res) => {
   db.user.update({
     name: req.body.name,
     email: req.body.email,
@@ -43,38 +43,52 @@ router.put('/index/:id', (req, res) => {
     birthday: req.body.birthday,
   })
   .then(function(user) {
-      res.redirect('/profile/index', { user })
+      res.redirect('/profile/edit')
     }).catch(function(error) {
         res.render('404')
     })
 })
 
-//POST 
-router.post('/profile/favorites', (req, res) => {
-  db.favorite.create({
-    userId: req.user,
+//POST a favorite
+router.post('/favorites', (req, res) => {
+  if( !req.user) {
+    res.redirect('/auth/signup')
+  } else {
+    console.log(req.body)
+    console.log(req.user.id)
+    db.favorite.create({
+      userId: req.user.id,
+      url: req.body.url,
+      label: req.body.label,
+      image: req.body.image,
+      uri: req.body.uri,
+      foodId: req.body.foodId
+    })
+    .then((favorites) => {
+      // This route doesn't exist
+      res.redirect('/profile')
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/signup')
+    })
+  }
+})
+
+
+// DELETE /remove/faves
+router.delete('/', (req, res) => {
+  db.favorite.destroy({
+    where: { id: req.body.id },
+    userId: req.user.id,
     url: req.body.url,
     label: req.body.label,
     image: req.body.image,
     uri: req.body.uri,
     foodId: req.body.foodId
   })
-  .then((favorites) => {
-    res.redirect('profile/favorites', { faves: favorites })
-  })
-  .catch(err => {
-    console.log(err)
-    res.render('404')
-  })
-})
-
-// DELETE /remove/faves
-router.delete('/', (req, res) => {
-  db.favorite.destroy({
-    where: { id: req.body.id }
-  })
   .then(deletedRecipe => {
-    res.redirect('/profile/favorites', { faves : favorites })
+    res.redirect('/profile')
   })
   .catch(err => {
     console.log(err)

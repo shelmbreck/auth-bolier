@@ -1,18 +1,17 @@
-<div class="center"id="opening">
+<div class="center" id="opening">
   <p>Are the kids asking "Mom, what's for dinner?!" Let me guess... you have no idea.</p> 
   <p>Maybe you're trying out a new diet and need new ideas?</p>
   <p>Or maybe you just don't have time and you need something quick and easy that everyone will like</p>
-  <p>No problem we've got you covered!</p>
+  <p>No problem we've got you covered! All you need to do is enter what you want to search, select your diet options... or not and get your dream recipe!</p>
 </div>
-<br>
 
 <form method="GET" action="/recipes" id="submission">
-<div class='row center'> 
-<div class='row center search-area'>
-        <div class="input-field col s12 m5 l5 center searchbox z-depth-3">
-          <input id="search" class="z-depth-3" type="search" name='search' placeholder= "Search">
-        </div>
-		<select name='selectionbox' class="browser-default selectionbox col s12 m5 l5 z-depth-3">
+<div class="row"> 
+	<div class='row center search-area'>
+    <div class="input-field col s12 m8 l5 searchbox z-depth-3">
+      <input id="search" class="z-depth-3" type="search" name='searchParams' placeholder= "Search">
+    </div>
+		<%# <select name='selection' class="browser-default selectionbox col s12 m5 l5" id="selection">
 			<option value="null" selected>Diet Options</option>
 			<option value="dairy-free">Dairy-Free</option>
 			<option value="egg-free">Egg-Free</option>
@@ -27,14 +26,10 @@
 			<option value="vegan">Vegan</option>
 			<option value="vegatarian">Vegetarian</option>
 			<option value="wheat-free">Wheat-Free</option>
-		<div class="card-reveal">
-		<span class="card-title red-text text-darken-4">Dietary Options<i class="material-icons right">close</i></span>
+		</select>
+		<br> %>
+		<button type="submit" class="col s12 m2 l2 btn-medium waves-effect center z-depth-3" id="search-button">Give Me The Recipes!</button>
 	</div>
   </div>
-	</div>
-</div>
-		</select>
-		<button type='submit' class='col s12 m2 l2 btn-large selectionbox waves-effect waves-light red darken-2 center submit-search-button z-depth-3'>Search!</button>
-</div>
-    </form>
+</form>
 	

@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
         res.send('Oops - check logs')
       } else {
         results = JSON.parse(body)
-        var neededItems = results.hits.map(hit=>{
+        var neededItems = results.hits.map(hit =>{
           return {
             dietLabels: hit.recipe.dietLabels,
             healthLabels: hit.recipe.healthLabels,
@@ -40,7 +40,6 @@ router.get('/', (req, res) => {
           }
         })
         res.render('results', { recipes: neededItems })
-      // ?res.send(neededItems)
       }
     })
   } else {

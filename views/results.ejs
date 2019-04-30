@@ -1,27 +1,19 @@
   <div class="row">
 <% recipes.forEach(recipe => { %>
-    <div class="col l4">
-      <div class="card s4">
+    <div class="col s12 m7">
+      <div class="card">
         <h5 class="center"><%= recipe.label %></h5>
-        <div class="responsive-img">
+        <div class="responsive-img center">
           <img src="<%= recipe.image %>">
         </div>
-        <div class="card-content">
-          <div>
+        <div class=" results card-content" >
             <form method="POST" action="/profile/favorites">
-              <input type="hidden" value="<%= recipe.label %>">
-              <input type="hidden" value="<%= recipe.image %>">
-              <input type="hidden" value="<%= recipe.dietLabels %>">
-              <input type="hidden" value="<%= recipe.healthLabels %>">
-              <a href="<%= recipe.url %>">Visit Page</a>
               <input class="add-recipe" type="submit" value="add to favorites">
+              <p><strong>Diet Labels:</strong><%= recipe.dietLabels %></p>
+              <p><strong>Health Labels:</strong><%= recipe.healthLabels %></p>
             </form>
-          <h1 class="card-title"><%= recipe.ingredientsLabels %></h1>
-            <p><strong>Diet Labels:</strong><%= recipe.dietLabels %></p>
-            <p><strong>Health Labels:</strong><%= recipe.healthLabels %></p>
-          </div>
         </div>
-        <div class="card-action">
+        <div class="card-action center">
           <a href="<%= recipe.url %>">Visit Page</a>
         </div>
       </div>
