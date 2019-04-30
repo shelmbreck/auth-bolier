@@ -35,9 +35,9 @@
 						<br>
         <div class="card-action">
 					<form action="/profile/?_method=DELETE" method="POST">
-					<input class="delete-recipe" type="submit" 
-					value="Delete Recipe">
-        </form>
+						<input class="delete-recipe" type="submit" value="Delete Recipe">
+						<input type="hidden" name="id" value="<%= fave.id %>">
+					</form>
 				</div>
 			<% }) %>
       </div>

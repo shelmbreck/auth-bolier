@@ -8,10 +8,13 @@
         </div>
         <div class=" results card-content" >
             <form method="POST" action="/profile/favorites">
+              <input type="hidden" name="label" value="<%= recipe.label %>">
+              <input type="hidden" name="image" value="<%= recipe.image %>">
+              <input type="hidden" name="url" value="<%= recipe.url %>">
               <input class="add-recipe" type="submit" value="add to favorites">
+            </form>
               <p><strong>Diet Labels:</strong><%= recipe.dietLabels %></p>
               <p><strong>Health Labels:</strong><%= recipe.healthLabels %></p>
-            </form>
         </div>
         <div class="card-action center">
           <a href="<%= recipe.url %>">Visit Page</a>

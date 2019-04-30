@@ -65,7 +65,6 @@ router.post('/favorites', (req, res) => {
       foodId: req.body.foodId
     })
     .then((favorites) => {
-      // This route doesn't exist
       res.redirect('/profile')
     })
     .catch(err => {
@@ -79,13 +78,7 @@ router.post('/favorites', (req, res) => {
 // DELETE /remove/faves
 router.delete('/', (req, res) => {
   db.favorite.destroy({
-    where: { id: req.body.id },
-    userId: req.user.id,
-    url: req.body.url,
-    label: req.body.label,
-    image: req.body.image,
-    uri: req.body.uri,
-    foodId: req.body.foodId
+    where: { id: req.body.id }
   })
   .then(deletedRecipe => {
     res.redirect('/profile')
