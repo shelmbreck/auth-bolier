@@ -15,6 +15,10 @@ const API_KEY = process.env.EDAMAM_APP_SECRET
 router.get('/', (req, res) => {
   if(Object.keys(req.query).length !== 0){
     var recipesUrl = `${BASE_URL}?q=${req.query.searchParams}&app_id=${APP_ID}&app_key=${API_KEY}`
+    if (req.query.health != 'null') {
+      var recipeUrl = recipeUrl + "&health=" + req.body.health
+      console.log("We have a param!!", req.query.health)
+    }
     console.log(recipesUrl)
     request(recipesUrl, function(error, response, body) {
       if(error || response.statusCode != 200) {

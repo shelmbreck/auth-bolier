@@ -1,31 +1,32 @@
 <div class="container center" id="edit-info">
   <form method="POST" action="/profile/edit/">
-  <div class="row">
-    <div class="input-field col s6 m6">
-      <input placeholder="Your first name" id="firstname" name="firstname" type="text" class="validate" value="<%= user.firstname %>">
-      <label for="firstname">First Name</label>
-    </div>
-    <div class="input-field col s6 m6">
-      <input placeholder="Your last name" id="lastname" name="lastname" type="text" class="validate" value="<%= user.lastname %>">
-      <label for="lastname">Last Name</label>
-    </div>
-  </div>
     <div class="row">
-      <div class="input-field col s9">
-        <input placeholder="Your email" id="email" name="email" type="text" class="validate">
-        <label for="email">Email</label>
+      <div class="input-field col s6 m6">
+        <input placeholder="Your first name" id="firstname" name="firstname" type="text" class="validate" value="<%= user.firstname %>">
+        <label for="firstname">First Name</label>
       </div>
-      <div class="input-field col s3">
-        <input id="birthdate" name="birthdate" type="text" class="datepicker">
-        <label for="birthdate">Birthdate</label>
+      <div class="input-field col s6 m6">
+        <input placeholder="Your last name" id="lastname" name="lastname" type="text" class="validate" value="<%= user.lastname %>">
+        <label for="lastname">Last Name</label>
       </div>
     </div>
       <div class="row">
-        <div class="col s12">
-          <button class="btn waves-effect waves-light right" type="submit">Submit
-          <i class="material-icons right"></i></button>
+        <div class="input-field col s9">
+          <input placeholder="Your email" id="email" name="email" type="text" class="validate">
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field col s3">
+          <input id="birthdate" name="birthdate" type="text" class="datepicker" 
+          value="<%= user.birthday %>">
+          <label for="birthdate">Birthday</label>
         </div>
       </div>
-  </form>
+        <div class="row">
+          <div class="col s12">
+            <button class="btn waves-effect waves-light right" type="submit">Submit
+            <i class="material-icons right"></i></button>
+          </div>
+        </div>
+    </form>
   </div>
 </div>

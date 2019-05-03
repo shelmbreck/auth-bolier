@@ -27,14 +27,14 @@ router.get('/', (req, res) => {
 })
 
 //GET/edit/:id
-router.get('/edit/:id', (res, req) => {
+router.get('/edit/:id', (req, res) => {
   db.user.findByPk(req.params.id)
     .then(user => {
       res.render('profile/edit', { user })
     })
   })
 
-// PUT 
+// PUT (put edited user info on profile)
 router.put('/', (req, res) => {
   db.user.update({
     name: req.body.name,
@@ -43,7 +43,7 @@ router.put('/', (req, res) => {
     birthday: req.body.birthday,
   })
   .then(function(user) {
-      res.redirect('/profile/edit')
+      res.redirect('/')
     }).catch(function(error) {
         res.render('404')
     })
