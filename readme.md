@@ -70,8 +70,14 @@ When I first started looking at API's I was curious about Pinterest's API, but a
 ### Styling
 For styling I wanted to keep it very simple since my background image has so much going on, so I tried to stick to simple and somewhat opaque so you could still see the background a little bit.
 
+### User Stories
+
+A mom who is working full time with a house full of kids who keep asking, Mom, What's for Dinner? She doesn't have enough time to plan something out.
+
+A mom who needs new recipes to try out because her family is getting sick of the same recipes over and over again.
+
 ### Next Steps
-I created the drop down menu to add in filters to your search but I ran out of time to pass that through the API call, so I would like to implement that. I need to go in and change the tabs available after you've logged in so they no longer say "sign up" and "log in". I also created a comments model and have a comments controller so you could add reviews to recipes, but again I ran out of time but this would be a great thing to add in when I have the chance to.
+I need to go in and change the tabs available after you've logged in so they no longer say "sign up" and "log in". I also created a comments model and have a comments controller so you could add reviews to recipes, but again I ran out of time but this would be a great thing to add in when I have the chance to.
 
 ### Technologies Used 
 - Node.js
