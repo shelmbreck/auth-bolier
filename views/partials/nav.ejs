@@ -2,9 +2,13 @@
     <div class="nav-wrapper deep-orange darken-4">
       <a href="/" class="brand-logo center">Mom, What's For Dinner?!<i class="material-icons large">local_dining</i></a>
       <ul class="right hide-on-med-and-down">
+      <% if (user != undefined) { %>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="auth/logout">Logout</a></li>
+      <% } else { %> 
         <li><a href="/auth/login">Log In</a></li>
         <li><a href="/auth/signup">Sign Up</a></li>
-        <li><a href="/profile">Profile</a></li>
+      <% } %>
       </ul>
     </div>
   </nav>

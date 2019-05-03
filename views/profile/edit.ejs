@@ -1,5 +1,5 @@
 <div class="container center" id="edit-info">
-  <form method="POST" action="/profile/edit/">
+  <form method="POST" action="/profile/edit/?_method=PUT">
     <div class="row">
       <div class="input-field col s6 m6">
         <input placeholder="Your first name" id="firstname" name="firstname" type="text" class="validate" value="<%= user.firstname %>">

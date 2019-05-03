@@ -35,15 +35,17 @@ router.get('/edit/:id', (req, res) => {
   })
 
 // PUT (put edited user info on profile)
-router.put('/', (req, res) => {
+router.put('/edit', (req, res) => {
   db.user.update({
-    name: req.body.name,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
     email: req.body.email,
-    password: req.body.email,
     birthday: req.body.birthday,
-  })
+  },
+  {where: { id: req.user.id } }
+  )
   .then(function(user) {
-      res.redirect('/')
+      res.redirect('/profile')
     }).catch(function(error) {
         res.render('404')
     })
