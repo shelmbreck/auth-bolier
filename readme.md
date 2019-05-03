@@ -2,6 +2,8 @@
 
 Mom, What's For Dinner is a Node.js app that helps people pick out recipes, when they either don't have the time or they are looking for somehing new.
 
+[Live Link](https://mom-whats-for-dinner.herokuapp.com/)
+
 ### Using The App
 In order to search recipes you have to have an account. So first you need to click on the "sign up" tab. You will fill out the sign up form, then you can go back to the home page and start searching for recipes.
 
